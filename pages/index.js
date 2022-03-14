@@ -1,5 +1,5 @@
 import react from "react";
-import { FormList } from "../src/components/form";
+import { FormList, ToDoList } from "../src/components/form";
 import { TitlePrimary } from "../src/components/tags";
 
 export default function HomePage() {
@@ -10,7 +10,7 @@ export default function HomePage() {
                 value="Lista de Tarefas"
             />
             <div>
-                <FormList/>
+                <FormList />
             </div>
         </div>
     )
