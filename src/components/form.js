@@ -1,16 +1,27 @@
 import react, { useState, useEffect } from "react";
+import Image from "next/image";
+
+//! ///////// Img
+import editIcon from "./img/editIcon.svg"
+import trashIcon from "./img/trashIcon.svg"
+
+
 
 export function FormList() {
     const [newItem, setNewItem] = react.useState(``)
     const [toDoList, setToDoList] = react.useState([])
     const [indexTask, setIndexTask] = react.useState(-1)
+    const buttonEffect = newItem.length === 0 ? 'brightness-75' : 'brightness-105'
     
+
+
 
 
     react.useEffect(() => {
         const startList = JSON.parse(localStorage.getItem('tasks'))
+        if (!startList) return
         setToDoList(startList)
-        
+
     }, [])
 
     react.useEffect(() => {
@@ -18,15 +29,19 @@ export function FormList() {
     }, [toDoList])
 
     return (
-        <>
+        <div
+            className="">
+            <h2 className="text-white p-5 text-4xl text-center">
+                {indexTask === -1 ? '' : 'Editando'}
+            </h2>
             <form
                 onSubmit={(e) => {
                     e.preventDefault()
-                    
+
                 }}
-                className="w-[750px] h-[300px] flex justify-center items-center bg-gray-900 p-5 gap-3">
+                className="w-full lg:w-5/6 h-[300px] mx-auto flex sm:flex-row flex-col justify-center items-center bg-gray-900 p-5 gap-3 border-2">
                 <input
-                    className="w-5/6 h-[40px] p-2"
+                    className="w-full sm:w-5/6 h-[40px] p-2"
                     value={newItem}
                     onChange={(e) => {
                         const valor = e.target.value
@@ -35,11 +50,11 @@ export function FormList() {
                 />
                 <button
                     type="submit"
-                    className="w-1/6 h-[40px] bg-yellowPrimary font-bold"
+                    className={`${buttonEffect} w-full sm:w-1/6 h-[40px] bg-yellowPrimary font-bold hover:brightness-110`}
                     onClick={() => {
                         newItem.trim()
                         if (toDoList.indexOf(newItem) !== -1) return
-                        
+
                         if (indexTask === -1) {
                             setToDoList([...toDoList, newItem])
                             setNewItem('')
@@ -56,6 +71,14 @@ export function FormList() {
                 >
                     Enviar
                 </button>
+                <button
+                className={`${indexTask === -1 ? 'hidden' : 'block'} mx-auto w-full sm:w-1/6 h-[40px] bg-yellowPrimary text-darkBluePrimary font-bold hover:brightness-110`}
+                onClick={(e) => {
+                    e.preventDefault
+                    setIndexTask(-1)
+                }}>
+                Cancelar
+            </button>
             </form>
 
             <ToDoList
@@ -66,21 +89,24 @@ export function FormList() {
                 indexTask={indexTask}
                 setIndexTask={setIndexTask}
             />
-        </>
+        </div>
     )
 }
 
 
 function ToDoList(props) {
     return (
-        <ul className="text-white flex flex-col gap-2 bg-yellowPrimary p-2">
+        <ul className="flex flex-col gap-2 py-5">
             {props.toDoList.map((newItem, index) => {
                 return (
                     <li
-                        className="flex justify-between bg-gray-900 p-4"
+                        className="sm:h-[75px] gap-5 sm:gap-1 flex justify-between sm:items-center p-4 flex-col
+                        sm:flex-row
+                        text-white hover:text-black
+                        bg-bluishGray hover:bg-yellowPrimary"
                         key={newItem}>
                         {newItem}
-                        <span className="flex gap-4">
+                        <span className="flex gap-4 self-end sm:self-center">
                             <EditTask
                                 index={index}
                                 indexTask={props.indexTask}
@@ -106,16 +132,20 @@ function ToDoList(props) {
 function EditTask(props) {
     return (
         <button
+            className="w-[50px] h-[50px] relative rounded-full p-2 hover:bg-blue-400"
             onClick={(e) => {
                 e.preventDefault
                 const newList = [...props.toDoList]
 
                 props.setIndexTask(props.index)
                 props.setNewItem(newList[props.index])
-                console.log("Edit","index", props.index, "indexTask", props.indexTask)
+                console.log("Edit", "index", props.index, "indexTask", props.indexTask)
             }}
         >
-            Editar
+            <Image
+                layout="responsive"
+                src={editIcon}
+            />
         </button>
     )
 }
@@ -126,6 +156,7 @@ function EditTask(props) {
 function DeleteTask(props) {
     return (
         <button
+            className="w-[50px] h-[50px] relative rounded-full p-2 hover:bg-red-500"
             onClick={(e) => {
                 e.preventDefault
                 const newList = [...props.toDoList]
@@ -133,7 +164,10 @@ function DeleteTask(props) {
                 props.setToDoList(newList)
             }}
         >
-            Deletar
+            <Image
+                layout="responsive"
+                src={trashIcon}
+            />
         </button>
     )
 }
