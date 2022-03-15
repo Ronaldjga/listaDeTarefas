@@ -1,9 +1,22 @@
-import react, { useState } from "react";
+import react, { useState, useEffect } from "react";
 
 export function FormList() {
     const [newItem, setNewItem] = react.useState(``)
     const [toDoList, setToDoList] = react.useState([])
     const [indexTask, setIndexTask] = react.useState(-1)
+    
+
+
+    react.useEffect(() => {
+        const startList = JSON.parse(localStorage.getItem('tasks'))
+        setToDoList(startList)
+        
+    }, [])
+
+    react.useEffect(() => {
+        localStorage.setItem('tasks', JSON.stringify(toDoList));
+
+    }, [toDoList])
 
     return (
         <>
