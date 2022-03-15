@@ -14,8 +14,7 @@ export function FormList() {
     }, [])
 
     react.useEffect(() => {
-        localStorage.setItem('tasks', JSON.stringify(toDoList));
-
+        const saveList = localStorage.setItem('tasks', JSON.stringify(toDoList));
     }, [toDoList])
 
     return (
@@ -23,7 +22,7 @@ export function FormList() {
             <form
                 onSubmit={(e) => {
                     e.preventDefault()
-                    setNewItem('')
+                    
                 }}
                 className="w-[750px] h-[300px] flex justify-center items-center bg-gray-900 p-5 gap-3">
                 <input
@@ -50,6 +49,7 @@ export function FormList() {
 
                             setToDoList(newList)
                             setIndexTask(-1)
+                            setNewItem('')
                         }
 
                     }}
