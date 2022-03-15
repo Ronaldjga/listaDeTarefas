@@ -1,6 +1,6 @@
 import react from "react";
 import { FormList, ToDoList } from "../src/components/form";
-import { Sociais } from "../src/components/sociaisgroup";
+import { Sociaisgroup } from "../src/components/sociaisgroup";
 import { TitlePrimary } from "../src/components/tags";
 
 export default function HomePage() {
@@ -11,7 +11,7 @@ export default function HomePage() {
                     className="justify-start text-center my-5"
                     value="Lista de Tarefas"
                 />
-                <Sociais/>
+                <Sociaisgroup/>
                 <div>
                     <FormList />
                 </div>
