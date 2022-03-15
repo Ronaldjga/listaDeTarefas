@@ -39,7 +39,7 @@ export function FormList() {
                     e.preventDefault()
 
                 }}
-                className="w-full lg:w-5/6 h-[300px] mx-auto flex sm:flex-row flex-col justify-center items-center bg-gray-900 p-5 gap-3 border-2">
+                className="w-full lg:w-5/6 h-[300px] mx-auto flex sm:flex-row flex-col justify-center items-center bg-gray-900 p-5 gap-3 border-2 border-yellowPrimary">
                 <input
                     className="w-full sm:w-5/6 h-[40px] p-2"
                     value={newItem}
