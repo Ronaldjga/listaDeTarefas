@@ -12,7 +12,6 @@ export default function HomePage() {
                     className="justify-start text-center my-5"
                     value="Lista de Tarefas"
                 />
-                <Sociaisgroup/>
                 <div>
                     <FormList />
                 </div>
