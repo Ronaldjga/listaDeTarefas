@@ -1,6 +1,7 @@
 import react from "react";
+import { Footer } from "../src/components/footer";
 import { FormList, ToDoList } from "../src/components/form";
-import { Sociaisgroup } from "../src/components/sociaisgroup";
+import { ReportButton } from "../src/components/reportButton";
 import { TitlePrimary } from "../src/components/tags";
 
 export default function HomePage() {
@@ -15,7 +16,9 @@ export default function HomePage() {
                 <div>
                     <FormList />
                 </div>
+                <ReportButton/>
             </div>
+            <Footer/>
         </div>
     )
 }

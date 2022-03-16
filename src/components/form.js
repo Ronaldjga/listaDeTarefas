@@ -25,7 +25,7 @@ export function FormList() {
     }, [])
 
     react.useEffect(() => {
-        const saveList = localStorage.setItem('tasks', JSON.stringify(toDoList));
+        localStorage.setItem('tasks', JSON.stringify(toDoList));
     }, [toDoList])
 
     return (
@@ -102,8 +102,8 @@ function ToDoList(props) {
                     <li
                         className="sm:h-[75px] gap-5 sm:gap-1 flex justify-between sm:items-center p-4 flex-col
                         sm:flex-row
-                        text-white hover:text-black
-                        bg-bluishGray hover:bg-yellowPrimary"
+                        text-darkBluePrimary md:text-white hover:text-black font-semibold
+                        bg-yellowPrimary md:bg-bluishGray hover:bg-yellowPrimary"
                         key={newItem}>
                         {newItem}
                         <span className="flex gap-4 self-end sm:self-center">
@@ -145,6 +145,7 @@ function EditTask(props) {
             <Image
                 layout="responsive"
                 src={editIcon}
+                alt="edit"
             />
         </button>
     )
@@ -167,6 +168,7 @@ function DeleteTask(props) {
             <Image
                 layout="responsive"
                 src={trashIcon}
+                alt="delete"
             />
         </button>
     )
