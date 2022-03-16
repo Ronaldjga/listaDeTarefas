@@ -52,13 +52,18 @@ export function FormList() {
                 <button
                     type="submit"
                     className={`${buttonEffect} w-full sm:w-1/6 h-[40px] bg-yellowPrimary font-bold hover:brightness-110`}
-                    onClick={() => {
+                    onClick={(e) => {
                         newItem.trim()
                         if (toDoList.indexOf(newItem) !== -1) return
+                        
 
                         if (indexTask === -1) {
-                            setToDoList([...toDoList, newItem])
-                            setNewItem('')
+                            if (newItem.length === 0) {
+                                e.preventDefault
+                            } else {
+                                setToDoList([...toDoList, newItem])
+                                setNewItem('')
+                            }
                         } else {
                             const newList = [...toDoList];
                             newList[indexTask] = newItem
