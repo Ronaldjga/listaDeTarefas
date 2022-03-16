@@ -25,7 +25,7 @@ export function FormList() {
     }, [])
 
     react.useEffect(() => {
-        const saveList = localStorage.setItem('tasks', JSON.stringify(toDoList));
+        localStorage.setItem('tasks', JSON.stringify(toDoList));
     }, [toDoList])
 
     return (
@@ -145,6 +145,7 @@ function EditTask(props) {
             <Image
                 layout="responsive"
                 src={editIcon}
+                alt="edit"
             />
         </button>
     )
@@ -167,6 +168,7 @@ function DeleteTask(props) {
             <Image
                 layout="responsive"
                 src={trashIcon}
+                alt="delete"
             />
         </button>
     )

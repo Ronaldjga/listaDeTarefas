@@ -1,4 +1,5 @@
 import react from "react";
+import { Footer } from "../src/components/footer";
 import { FormList, ToDoList } from "../src/components/form";
 import { TitlePrimary } from "../src/components/tags";
 
@@ -14,6 +15,7 @@ export default function HomePage() {
                     <FormList />
                 </div>
             </div>
+            <Footer/>
         </div>
     )
 }
