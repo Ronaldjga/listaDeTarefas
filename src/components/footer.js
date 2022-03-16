@@ -8,9 +8,9 @@ import linkedinIcon from './img/linkedinIcon.svg'
 export function Footer() {
     return (
         <footer
-            className="w-full h-[350px] bg-bluishGray p-5"
+            className="w-full h-[350px] bg-gray-900 p-5"
         >
-            <h2 className="text-4xl font-h2Title font-bold text-center">
+            <h2 className="text-4xl font-h2Title font-bold text-center text-white">
                 Lista de Tarefas
             </h2>
             <SociaisIcon
