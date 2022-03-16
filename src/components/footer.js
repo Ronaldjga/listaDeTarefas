@@ -4,7 +4,7 @@ export function Footer() {
     return (
         <footer className="w-full h-[350px] bg-gray-900 flex justify-center items-center">
             <div className="w-2/4 flex flex-col items-center justify-center gap-3">
-                <p className="text-yellowPrimary">Informações pessoais</p>
+                <p className="text-yellowPrimary text-center">Informações pessoais</p>
                 
                 <h2 className="text-center text-3xl font-h2Title text-white">Ronald Almeida</h2>
                 <button

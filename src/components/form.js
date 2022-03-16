@@ -39,7 +39,7 @@ export function FormList() {
                     e.preventDefault()
 
                 }}
-                className="w-full lg:w-5/6 h-[300px] mx-auto flex sm:flex-row flex-col justify-center items-center bg-gray-900 p-5 gap-3 border-2">
+                className="w-full lg:w-5/6 h-[300px] mx-auto flex sm:flex-row flex-col justify-center items-center bg-gray-900 p-5 gap-3 border-2 border-yellowPrimary">
                 <input
                     className="w-full sm:w-5/6 h-[40px] p-2"
                     value={newItem}
@@ -102,8 +102,8 @@ function ToDoList(props) {
                     <li
                         className="sm:h-[75px] gap-5 sm:gap-1 flex justify-between sm:items-center p-4 flex-col
                         sm:flex-row
-                        text-white hover:text-black
-                        bg-bluishGray hover:bg-yellowPrimary"
+                        text-darkBluePrimary md:text-white hover:text-black font-semibold
+                        bg-yellowPrimary md:bg-bluishGray hover:bg-yellowPrimary"
                         key={newItem}>
                         {newItem}
                         <span className="flex gap-4 self-end sm:self-center">
