@@ -12,6 +12,7 @@ export function FormList() {
     const [toDoList, setToDoList] = react.useState([])
     const [indexTask, setIndexTask] = react.useState(-1)
     const buttonEffect = newItem.length === 0 ? 'brightness-75' : 'brightness-105'
+    const editAlert = indexTask === -1 ? '' : 'Editando'
     
 
 
@@ -32,7 +33,7 @@ export function FormList() {
         <div
             className="">
             <h2 className="text-white p-5 text-4xl text-center">
-                {indexTask === -1 ? '' : 'Editando'}
+                {editAlert}
             </h2>
             <form
                 onSubmit={(e) => {
